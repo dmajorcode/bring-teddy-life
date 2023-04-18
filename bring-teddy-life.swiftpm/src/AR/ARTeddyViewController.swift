@@ -10,7 +10,7 @@ import ARKit
 
 class ARTeddyViewController: UIViewController {
     let arView = ARView()
-    
+        
     var session: ARSession{
         arView.session
     }
