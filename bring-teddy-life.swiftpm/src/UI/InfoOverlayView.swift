@@ -13,7 +13,7 @@ struct InfoOverLayView: View {
     var body: some View {
         VStack{
             HStack{
-                Spacer()
+
                 Text("Say \"hello teddy\" to start recording little secret stories")
                 
                 
