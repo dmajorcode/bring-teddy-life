@@ -11,12 +11,22 @@ struct ARTeddyView: View {
     var body: some View {
         ZStack{
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            ARContentView()
         }
     }
 }
 
-//struct ARTeddyView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ARTeddyView()
-//    }
-//}
+struct ARContentView: View{
+    var body: some View{
+        ZStack{
+//            ARTeddyViewController()
+            Text("hi")
+        }
+    }
+}
+
+struct ARTeddyView_Previews: PreviewProvider {
+    static var previews: some View {
+        ARTeddyView()
+    }
+}

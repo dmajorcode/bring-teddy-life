@@ -11,7 +11,26 @@ struct InfoOverLayView: View {
     var nextAction: NextAction?
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HStack{
+                Spacer()
+                Text("Say \"hello teddy\" to start recording little secret stories")
+                
+                
+            }.padding()
+            
+            
+            Spacer()
+            Button{
+                nextAction?()
+            } label: {
+                Text("Next page")
+                    .padding()
+                    .background(.thinMaterial)
+                    .cornerRadius(5)
+            }
+            
+        }
     }
 }
 

@@ -40,6 +40,7 @@ struct ContentView: View {
         currentPageIndex += 1
     }
 }
+
 extension ContentView{
     struct ARViewPlaceHolder<T: View> : View{
         var arView: T
@@ -47,9 +48,8 @@ extension ContentView{
         
         var body: some View{
             ZStack{
-                arView
-//                arView.ignoresSafeArea()
-//                InfoOverLayView(nextAction:nextAction)
+                arView.ignoresSafeArea()
+                InfoOverLayView(nextAction:nextAction)
             }
         }
     }

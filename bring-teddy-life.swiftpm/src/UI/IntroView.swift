@@ -10,7 +10,65 @@ import SwiftUI
 struct IntroView: View {
     var clickedNext: (() -> ())?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack(spacing:50){
+            Text("Hello!").font(.largeTitle).padding()
+            
+            VStack(spacing:50){
+                
+                HStack{
+                    Image("diane_baby")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight:180)
+                        .padding(5)
+                    VStack{
+                        Text("This is Baby Diane")
+                        Spacer()
+                            .frame(height: 12.0)
+                        HStack{}
+                        VStack{
+                            Text("I have a little teddy that I always talk with. My parents brought teddy to me.")
+                            
+                            Spacer()
+                                .frame(height: 12.0)
+                            Text("I don't wanna tell parents everyting, I would rather reach teddy. Sometimes I hope my parent would just know my situation and help me.")
+                        }
+                        
+                            
+                    }
+                    
+                }
+                
+                HStack{
+                    
+                    VStack{
+                        Text("This is Diane")
+                        Spacer()
+                            .frame(height: 12.0)
+                        Text("I brought baby Diane here to chat with Teddy.")
+                            .multilineTextAlignment(.leading)
+                        Spacer()
+                            .frame(height: 12.0)
+                        Text("I can make what baby Diane had in mind to come in reality using AR.")
+                            .multilineTextAlignment(.leading)
+                    }
+                    Image("diane_adult")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight:200)
+                        .padding(3)
+                    
+                }
+                ButtonBridge(title:"Continue"){
+                    clickedNext?()
+                }
+                .frame(height:50)
+            }.padding(20)
+        }
+//        .padding(40)
+        .frame(maxWidth:600)
+        
     }
 }
 
