@@ -2,8 +2,8 @@ import SwiftUI
 
 enum Page: CaseIterable{
     case intro
-//    record button should get in between
     case ar
+    case recordingsList
     case outro
 }
 
@@ -29,6 +29,8 @@ struct ContentView: View {
                     guard currentPage == .ar else {return}
                     currentPageIndex += 1
                 }
+            case .recordingsList:
+                RecordingsListView()
             case .outro:
                 OutroView()
             }
