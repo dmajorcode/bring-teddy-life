@@ -28,7 +28,7 @@ struct OutroView: View {
                 Text(" Baby Diane had a hard time sharing her most honest feelings and experiences with other people.")
                 Spacer()
                     .frame(height: 12.0)
-                 Text(" But with this Teddy, alive in app, baby Diane will be sharing everything. Also parent won't have to worry about baby Diane though she does not directly tell parent about what happened. Parent will get to know some things as Teddy will let them know sometimes.")
+                 Text(" But with this Teddy, baby Diane can be sharing whereever. Also parents won't have to worry about baby Diane though she does not directly speak to parents. Teddy will let them know sometimes.")
                     
                     
                     
