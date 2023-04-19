@@ -23,6 +23,23 @@ class ARTeddyViewController: UIViewController {
 //    @IBAction func startExperience(_ sender: Any){
 //        roboAnchor.notifications.roboStart.post()
 //    }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let anchor = AnchorEntity()
+        arView.scene.anchors.append(anchor)
+        Experience.loadTeddyAsync(completion: {[weak self](result) in
+            let experience = try! result.get()
+            let bear = experience.group as! (Entity & HasCollision)
+            anchor.addChild(bear)
+            self?.arView.installGestures(for: bear)
+        })
+        
+    }
+    
     let arView = ARView()
 
     var session: ARSession{

@@ -28,6 +28,12 @@ public enum Experience {
         let anchorEntity = try Experience.Teddy.loadAnchor(contentsOf: realityFileSceneURL)
         return createTeddy(from: anchorEntity)
     }
+    
+    public static func loadTeddyAsync(completion: @escaping(Swift.Result<Experience.Teddy, Swift.Error>) -> Void){
+        guard let realityFileURL = Foundation.Bundle(for:Experience.Teddy.self).url(forResource: "Experience", withExtension: "reality") else{completion(.failure(Experience.LoadRealityFileError.fileNotFound("Experience.reality")))
+            return
+        }
+    }
     private static func createTeddy(from anchorEntity: RealityKit.AnchorEntity) -> Experience.Teddy{
         let teddy = Experience.Teddy()
         teddy.anchoring = anchorEntity.anchoring

@@ -19,9 +19,8 @@ struct ARTeddyView: View {
 struct ARContentView: View{
     var body: some View{
         ZStack{
-
             Text("hi")
-//            ARTeddyViewController()
+            ARTeddyViewControllerBridge()
         }
     }
 }
