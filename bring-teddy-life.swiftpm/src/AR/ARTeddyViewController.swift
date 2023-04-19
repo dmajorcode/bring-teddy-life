@@ -38,6 +38,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     
     private var teddyAnchor: AnchorEntity!
     private var cameraAnchor: AnchorEntity!
+    var placementState = false
     
     // Speech Recognition
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -48,6 +49,9 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     let audioEngine = AVAudioEngine()
     let audioSession = AVAudioSession.sharedInstance()
     
+    var recognitionState = false
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("this is arVIew:",arView)
@@ -56,12 +60,12 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         
         // Tap detector
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
-        
+        print("start speech recognision")
         // Start Speech Recognition
         startSpeechRecognition()
     }
     func setupARView(){
-        print("in setupARView")
+        
         arView.automaticallyConfigureSession = false
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
@@ -71,11 +75,13 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         arView.debugOptions = .showAnchorGeometry
         
         arView.session.run(configuration)
-        print("i am all made")
+        
     }
+
     @objc
     func handleTap(recognizer: UITapGestureRecognizer){
-        print("i am in handle tap")
+        
+        if (placementState){return}
         let location = recognizer.location(in: arView)
         
         let results = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .horizontal)
@@ -87,8 +93,10 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
             print("Object placement failed - couldn't find surface.")
         }
     }
+    
     func placeObject(named entityName: String, for anchor: ARAnchor) {
-        print("i am in placing object")
+        placementState = true
+        
         let entity = try! ModelEntity.loadModel(named: entityName)
         
         entity.generateCollisionShapes(recursive: true)
@@ -97,6 +105,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         let anchorEntity = AnchorEntity(anchor: anchor)
         anchorEntity.addChild(entity)
         arView.scene.addAnchor(anchorEntity)
+        
     }
     func startSpeechRecognition(){
         
@@ -144,6 +153,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         }
         
     }
+
     func speechRecognize(){
         guard let speechRecognizer = SFSpeechRecognizer() else{
             print("Speech recognizer not available")
@@ -154,24 +164,19 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         }
         
         // Task (recognize text)
-        var count = 0
-        
+
         speechTask = speechRecognizer.recognitionTask(with: speechRequest, resultHandler: {(result, error) in
-            count += 1
-            
-            if (count == 1){
-                guard let result = result else {return}
-                let recognizedText = result.bestTranscription.segments.last
-                
-                // start recording
-                print("recording should start from here")
-                if (recognizedText?.substring == "Teddy"){
-                    print("Word Teddy recognized")
-                }
-                
-            } else if (count >= 3){
-                count = 0
+            guard let result = result else {return}
+            if (self.recognitionState){return}
+            print(result.bestTranscription.formattedString)
+            if (result.bestTranscription.formattedString.contains("Remember me teddy") ||
+                result.bestTranscription.formattedString.contains("Remember me Teddy") ||
+                result.bestTranscription.formattedString.contains("remember me teddy") ||
+                result.bestTranscription.formattedString.contains("remember me Teddy")){
+                // Start recording
+                self.recognitionState = true
             }
+            
             
         })
     }
