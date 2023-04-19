@@ -10,17 +10,17 @@ import SwiftUI
 struct ARTeddyView: View {
     var body: some View {
         ZStack{
-            Text("Hello!")
             ARContentView()
         }
     }
 }
 
 struct ARContentView: View{
+    @State private var recognitionState = false
     var body: some View{
         ZStack{
-            Text("hi")
-            ARTeddyViewControllerBridge()
+            ARTeddyViewControllerBridge(state: $recognitionState)
+            RecognitionOverLayView(state: $recognitionState)
         }
     }
 }

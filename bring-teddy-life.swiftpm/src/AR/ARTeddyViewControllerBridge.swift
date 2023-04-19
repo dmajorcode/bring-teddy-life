@@ -10,13 +10,20 @@ import SwiftUI
 
 
 struct ARTeddyViewControllerBridge: UIViewControllerRepresentable{
-    func updateUIViewController(_ uiViewController: ARTeddyViewController, context: Context) {
-
+    @Binding var state: Bool
+    func updateUIViewController(_ vc: ARTeddyViewController, context: Context) {
+        vc.recognitionState = state
     }
     
-    
     func makeUIViewController(context: Context) -> ARTeddyViewController{
+        
         let vc = ARTeddyViewController()
+        vc.recognitionState = state
+        
         return vc
     }
 }
+
+//extension ARTeddyViewControllerBridge {
+//    
+//}

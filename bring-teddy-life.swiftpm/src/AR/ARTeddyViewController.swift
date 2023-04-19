@@ -60,9 +60,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         
         // Tap detector
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
-        print("start speech recognision")
-        // Start Speech Recognition
-        startSpeechRecognition()
+        
     }
     func setupARView(){
         
@@ -89,9 +87,14 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         if let firstResult = results.first {
             let anchor = ARAnchor(name: "TeddyBear", transform: firstResult.worldTransform)
             arView.session.add(anchor: anchor)
+            
+            // Start Speech Recognition
+            startSpeechRecognition()
+            
         } else {
             print("Object placement failed - couldn't find surface.")
         }
+        
     }
     
     func placeObject(named entityName: String, for anchor: ARAnchor) {
@@ -115,6 +118,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         startAudioRecording()
         // 3. Speech Recognition
         speechRecognize()
+        
     }
     func requestPermission(){
         SFSpeechRecognizer.requestAuthorization{ (authorizationStatus) in
@@ -177,8 +181,10 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 self.recognitionState = true
             }
             
+            // record here
             
         })
+        
     }
 
 }

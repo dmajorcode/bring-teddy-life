@@ -51,7 +51,7 @@ extension ContentView{
         var body: some View{
             ZStack{
                 arView.ignoresSafeArea()
-                InfoOverLayView(nextAction:nextAction)
+//                InfoOverLayView(nextAction:nextAction)
             }
         }
     }
