@@ -12,12 +12,12 @@ struct InfoOverLayView: View {
     
     var body: some View {
         VStack{
-            HStack{
-
-                Text("Say \"hello teddy\" to start recording little secret stories")
-                
-                
-            }.padding()
+//            HStack{
+//
+//                Text("Say \"hello teddy\" to start recording little secret stories")
+//                
+//
+//            }.padding()
             
             
             Spacer()

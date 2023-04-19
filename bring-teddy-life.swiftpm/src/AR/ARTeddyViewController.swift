@@ -9,7 +9,8 @@ import RealityKit
 import ARKit
 import Speech
 
-class ARTeddyViewControllerSuper: UIViewController {
+class ARTeddyViewControllerSuper: UIViewController, ObservableObject {
+    
     let arView = ARView()
     
     var session: ARSession{
@@ -35,6 +36,7 @@ class ARTeddyViewControllerSuper: UIViewController {
 }
 
 class ARTeddyViewController: ARTeddyViewControllerSuper {
+    var audioRecorder: AudioRecorder!
     
     private var teddyAnchor: AnchorEntity!
     private var cameraAnchor: AnchorEntity!
@@ -168,9 +170,10 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         }
         
         // Task (recognize text)
-
+        
         speechTask = speechRecognizer.recognitionTask(with: speechRequest, resultHandler: {(result, error) in
             guard let result = result else {return}
+            
             if (self.recognitionState){return}
             print(result.bestTranscription.formattedString)
             if (result.bestTranscription.formattedString.contains("Remember me teddy") ||
@@ -179,9 +182,13 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 result.bestTranscription.formattedString.contains("remember me Teddy")){
                 // Start recording
                 self.recognitionState = true
+                
             }
-            
             // record here
+            print(self.recognitionState)
+            if (self.recognitionState){
+//                self.audioRecorder.startRecording()
+            }
             
         })
         

@@ -8,25 +8,28 @@
 import SwiftUI
 
 struct ARTeddyView: View {
+    @ObservedObject var audioRecorder: AudioRecorder
     var body: some View {
         ZStack{
-            ARContentView()
+            ARContentView(audioRecorder: audioRecorder)
         }
     }
 }
 
 struct ARContentView: View{
     @State private var recognitionState = false
+    @ObservedObject var audioRecorder: AudioRecorder
     var body: some View{
         ZStack{
             ARTeddyViewControllerBridge(state: $recognitionState)
-            RecognitionOverLayView(state: $recognitionState)
+//            RecognitionOverLayView(state: $recognitionState, audioRecorder: audioRecorder)
+            //                self.audioRecorder.startRecording()
         }
     }
 }
 
 struct ARTeddyView_Previews: PreviewProvider {
     static var previews: some View {
-        ARTeddyView()
+        ARTeddyView(audioRecorder: AudioRecorder())
     }
 }

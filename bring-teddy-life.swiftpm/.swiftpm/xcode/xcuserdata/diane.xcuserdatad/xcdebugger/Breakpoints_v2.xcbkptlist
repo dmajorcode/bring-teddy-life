@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D725BD8A-FF85-4CBE-9E7A-7607662D83B0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/AR/ARTeddyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "ARTeddyViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414 - d3f9eba919939660"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.teddyAnchor.getter : Swift.Optional&lt;RealityKit.AnchorEntity&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414 - 167e07d513ee91fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.teddyAnchor.setter : Swift.Optional&lt;RealityKit.AnchorEntity&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414 - 5080d6676b54c507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.teddyAnchor.modify : Swift.Optional&lt;RealityKit.AnchorEntity&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414 - 6215f15505295a6f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.teddyAnchor.modify : Swift.Optional&lt;RealityKit.AnchorEntity&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414 - d0f06e771dac3e48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; bring_teddy_life.ARTeddyViewController"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "B8BADFED-21F5-4186-A610-3FC930E3C414 - 31301f4149d3ce09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;bring_teddy_life.ARTeddyViewController&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4575FE9-0030-4319-9902-7A354EF680EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/AR/ARTeddyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "ARTeddyViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "B4575FE9-0030-4319-9902-7A354EF680EC - da076024e4993aa6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.audioRecorder.getter : Swift.Optional&lt;bring_teddy_life.AudioRecorder&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "B4575FE9-0030-4319-9902-7A354EF680EC - 6f4a951b8fbc3a92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.audioRecorder.setter : Swift.Optional&lt;bring_teddy_life.AudioRecorder&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "B4575FE9-0030-4319-9902-7A354EF680EC - cb39d65a0fcceaa1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.audioRecorder.modify : Swift.Optional&lt;bring_teddy_life.AudioRecorder&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B4575FE9-0030-4319-9902-7A354EF680EC - 4558b6efdb6d9336"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.audioRecorder.modify : Swift.Optional&lt;bring_teddy_life.AudioRecorder&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "B4575FE9-0030-4319-9902-7A354EF680EC - d0f06e771dac3e8a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; bring_teddy_life.ARTeddyViewController"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "B4575FE9-0030-4319-9902-7A354EF680EC - 31301f4149d3cecb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "bring_teddy_life.ARTeddyViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;bring_teddy_life.ARTeddyViewController&gt;"
+                  moduleName = "bring-teddy-life"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diane/Documents/GitHub/teddy-to-life/bring-teddy-life.swiftpm/src/AR/ARTeddyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

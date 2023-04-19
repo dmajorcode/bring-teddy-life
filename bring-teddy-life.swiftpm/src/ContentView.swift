@@ -10,6 +10,7 @@ enum Page: CaseIterable{
 typealias NextAction = (() -> ())
 
 struct ContentView: View {
+    @ObservedObject var audioRecorder: AudioRecorder
     
     @State private var currentPageIndex = 0
     var currentPage: Page{
@@ -25,12 +26,16 @@ struct ContentView: View {
                     currentPageIndex += 1
                 }
             case .ar:
-                ARViewPlaceHolder(arView:ARTeddyView()){
+                ARViewPlaceHolder(arView:ARTeddyView(audioRecorder: audioRecorder)){
                     guard currentPage == .ar else {return}
                     currentPageIndex += 1
                 }
             case .recordingsList:
-                RecordingsListView()
+                RecordingsViewPlaceHolder(audioRecordingsView: AudioRecordingsView(audioRecorder: audioRecorder)){
+                    guard currentPage == .recordingsList else {return}
+                    currentPageIndex += 1
+                }
+
             case .outro:
                 OutroView()
             }
@@ -51,7 +56,19 @@ extension ContentView{
         var body: some View{
             ZStack{
                 arView.ignoresSafeArea()
-//                InfoOverLayView(nextAction:nextAction)
+                InfoOverLayView(nextAction:nextAction)
+            }
+        }
+    }
+    
+    struct RecordingsViewPlaceHolder<T: View> : View{
+        var audioRecordingsView: T
+        var nextAction: NextAction?
+        
+        var body: some View{
+            ZStack{
+                audioRecordingsView.ignoresSafeArea()
+                InfoOverLayView(nextAction:nextAction)
             }
         }
     }
