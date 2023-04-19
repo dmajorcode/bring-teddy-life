@@ -15,48 +15,66 @@ class ARTeddyViewControllerSuper: UIViewController {
     var session: ARSession{
         arView.session
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(arView)
         arView.translatesAutoresizingMaskIntoConstraints = false
-        
+        NSLayoutConstraint.activate(arView.pin(to: view))
         
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.session = session
         coachingOverlay.goal = .horizontalPlane
         arView.addSubview(coachingOverlay)
         coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(coachingOverlay.pin(to: arView))
         
     }
     
 }
 
 class ARTeddyViewController: ARTeddyViewControllerSuper {
-//    @IBOutlet var arView: ARView!
-    private var teddyAnchor: AnchorEntity!
-    private var cameraAnchor: AnchorEntity!
-//    @IBOutlet var arView: ARView!
-//
-//    var roboAnchor: RoboBear.Scene!
-//
+//    private var cameraAnchor: AnchorEntity!
+//    private var floorAnchor: AnchorEntity!
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
-//        roboAnchor = try! RoboBear.loadScene()
-//        roboAnchor.generateCollisionShapes(recursive: true)
 //
-//        arView.scene.anchors.append(roboAnchor)
+//        // Add anchor for floor
+//        floorAnchor = AnchorEntity(plane: .horizontal)
+//        arView.scene.anchors.append(floorAnchor)
+//        let anchor = floorAnchor!
+//
+//        // Add anchor for camera
+//        cameraAnchor = AnchorEntity(.camera)
+//        arView.scene.addAnchor(cameraAnchor)
+//
+//        addCubeExperiment(anchor: anchor)
 //    }
-//    @IBAction func startExperience(_ sender: Any){
-//        roboAnchor.notifications.roboStart.post()
+//
+//    func addCubeExperiment(anchor: AnchorEntity) {
+//        let container = Entity()
+//        let entity = createBox()
+//        container.addChild(entity)
+//        anchor.addChild(container)
 //    }
-    
+//
+//    func createBox() -> ModelEntity {
+//        let box = MeshResource.generateBox(size: 0.2)
+//        let material = SimpleMaterial(color: .green, isMetallic: true)
+//        let entity = ModelEntity(mesh: box, materials: [material])
+//        entity.generateCollisionShapes(recursive: true)
+//        return entity
+//    }
+    private var teddyAnchor: AnchorEntity!
+    private var cameraAnchor: AnchorEntity!
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("this is arVIew:",arView)
         arView.session.delegate = self
         setupARView()
-        
+
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
     }
     func setupARView(){
@@ -72,10 +90,10 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     func handleTap(recognizer: UITapGestureRecognizer){
         print("i am in handle tap")
         let location = recognizer.location(in: arView)
-        
-        
+
+
         let results = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .horizontal)
-        
+
         if let firstResult = results.first {
             let anchor = ARAnchor(name: "TeddyBear", transform: firstResult.worldTransform)
             arView.session.add(anchor: anchor)
@@ -86,50 +104,15 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     func placeObject(named entityName: String, for anchor: ARAnchor) {
         print("i am in placing object")
         let entity = try! ModelEntity.loadModel(named: entityName)
-        
+
         entity.generateCollisionShapes(recursive: true)
         arView.installGestures([.rotation, .translation], for: entity)
-        
+
         let anchorEntity = AnchorEntity(anchor: anchor)
         anchorEntity.addChild(entity)
         arView.scene.addAnchor(anchorEntity)
     }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        initAnchors()
-//
-//        Experience.loadTeddyAsync{[weak self] result in
-//            let experience = try! result.get()
-//            self?.addExperience(experience)
-//        }
-//
-////        let anchor = AnchorEntity()
-////        arView.scene.anchors.append(anchor)
-////        Experience.loadTeddyAsync(completion: {[weak self](result) in
-////            let experience = try! result.get()
-////            let bear = experience.group as! (Entity & HasCollision)
-////            anchor.addChild(bear)
-////            self?.arView.installGestures(for: bear)
-////        })
-//
-//    }
-//    private func addExperience(_ experience: Experience.Teddy){
-//
-//    }
-//    private func initAnchors(){
-//        teddyAnchor = AnchorEntity()
-//        arView.scene.anchors.append(teddyAnchor)
-//
-//        cameraAnchor = AnchorEntity(.camera)
-//        arView.scene.addAnchor(cameraAnchor)
-//    }
-    
-//    let arView = ARView()
-//
-//    var session: ARSession{
-//        arView.session
-//    }
+
 }
 
 extension ARTeddyViewController: ARSessionDelegate {
