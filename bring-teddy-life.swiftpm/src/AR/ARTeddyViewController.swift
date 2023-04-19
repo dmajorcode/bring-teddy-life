@@ -75,7 +75,11 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         arView.session.delegate = self
         setupARView()
 
+        // Tap detector
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
+        
+        // Start Speech Recognition
+        startSpeechRecognition()
     }
     func setupARView(){
         print("in setupARView")
@@ -83,6 +87,10 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
         configuration.environmentTexturing = .automatic
+        
+        // DENOTE THIS : code for development environment
+        arView.debugOptions = .showAnchorGeometry
+        
         arView.session.run(configuration)
         print("i am all made")
     }
@@ -90,7 +98,6 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     func handleTap(recognizer: UITapGestureRecognizer){
         print("i am in handle tap")
         let location = recognizer.location(in: arView)
-
 
         let results = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .horizontal)
 
@@ -111,6 +118,9 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         let anchorEntity = AnchorEntity(anchor: anchor)
         anchorEntity.addChild(entity)
         arView.scene.addAnchor(anchorEntity)
+    }
+    func startSpeechRecognition(){
+        
     }
 
 }
