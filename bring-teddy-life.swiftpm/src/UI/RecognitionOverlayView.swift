@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct RecognitionOverLayView: View {
-//    @State var state: Bool
-//    @ObservedObject var arTeddyViewController: ARTeddyViewController
     @ObservedObject var audioRecorder: AudioRecorder
     
     var nextAction: NextAction?

@@ -42,12 +42,12 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     private var cameraAnchor: AnchorEntity!
     var placementState = false
     
-    // Speech Recognition
+    // MARK: Speech Recognition
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let speechRequest = SFSpeechAudioBufferRecognitionRequest()
     var speechTask = SFSpeechRecognitionTask()
     
-    // Audio
+    // MARK: Audio
     let audioEngine = AVAudioEngine()
     let audioSession = AVAudioSession.sharedInstance()
     
@@ -105,7 +105,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
             let anchor = ARAnchor(name: "TeddyBear", transform: firstResult.worldTransform)
             arView.session.add(anchor: anchor)
             
-            // Start Speech Recognition
+            // MARK: Start Speech Recognition
             startSpeechRecognition()
             
         } else {
@@ -185,7 +185,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
             print("Temporarilty not working")
         }
         
-        // Task (recognize text)
+        // MARK: Task (recognize text)
         
         speechTask = speechRecognizer.recognitionTask(with: speechRequest, resultHandler: {(result, error) in
             guard let result = result else {return}
@@ -208,19 +208,13 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                         self.audioRecorder.stopRecording()
                         print(self.audioRecorder.recordings)
                         self.recordingsList = self.audioRecorder.recordings
-
                     }
-                    
                 }
                 return
-                
             }
 
-
         })
-        
     }
-
 }
 
 extension ARTeddyViewController: ARSessionDelegate {

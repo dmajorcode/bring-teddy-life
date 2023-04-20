@@ -12,7 +12,7 @@ struct IntroView: View {
     var body: some View {
         
         VStack(spacing:50){
-            Text("Hello!").font(.largeTitle).padding()
+            Text("Hello!").font(.largeTitle).padding(10)
             
             VStack(spacing:50){
                 
@@ -33,9 +33,7 @@ struct IntroView: View {
                             Spacer()
                                 .frame(height: 12.0)
                             Text("I don't wanna tell parents everyting, I'd rather reach teddy. Sometimes I hope my parent would just know and help me.")
-                        }
-                        
-                            
+                        }   
                     }
                     
                 }

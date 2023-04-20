@@ -25,12 +25,16 @@ struct ContentView: View {
                     guard currentPage == .intro else {return}
                     currentPageIndex += 1
                 }
+                
+            // TODO: ar disable stop recording > say Remember me Teddy
+            // TODO: if possible, next button with stop recording button
             case .ar:
                 ARViewPlaceHolder(arView:ARTeddyView(audioRecorder: audioRecorder)){
                     guard currentPage == .ar else {return}
                     currentPageIndex += 1
                 }
-                // should make audioRecording here and put in list and other place
+                
+            // TODO: enable playing recordings though not recorded previously (when skipped to recordingsList view)
             case .recordingsList:
                 RecordingsViewPlaceHolder(audioRecordingsView: AudioRecordingsView(audioRecorder: audioRecorder)){
                     guard currentPage == .recordingsList else {return}
