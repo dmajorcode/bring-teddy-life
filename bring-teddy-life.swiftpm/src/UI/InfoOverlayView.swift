@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoOverLayView: View {
     var nextAction: NextAction?
-    
+//    @ObservedObject var audioRecorder: AudioRecorder
     var body: some View {
         VStack{
 //            HStack{
@@ -19,11 +19,13 @@ struct InfoOverLayView: View {
 //
 //            }.padding()
             
-            
+            Spacer()
             Spacer()
             Button{
                 nextAction?()
-                
+//                if audioRecorder.recording == true{
+//                    self.audioRecorder.stopRecording()
+//                }
             } label: {
                 Text("Next page")
                     .padding()
@@ -35,8 +37,8 @@ struct InfoOverLayView: View {
     }
 }
 
-struct InfoOverLayView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfoOverLayView()
-    }
-}
+//struct InfoOverLayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InfoOverLayView()
+//    }
+//}

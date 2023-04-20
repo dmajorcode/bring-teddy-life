@@ -16,33 +16,28 @@ struct RecognitionOverLayView: View {
     
     var body: some View {
         VStack{
-//            HStack{
-//
-//                Text("Say \"hello teddy\" to start recording little secret stories")
-//
-//
-//            }.padding()
+
+            Spacer()
             
-//            if state == true{
-//                Text("true for sure")
-//            }else{
-//                Text("false for sure")
-//            }
-            
-//            Spacer()
             Button{
-                nextAction?()
-//                print("this is state", state)
-                
+
                 if audioRecorder.recording == true{
                     self.audioRecorder.stopRecording()
                 }
                 print("this is recordings", self.audioRecorder.recordings)
             } label: {
-                Text("Next dfadfpage")
-                    .padding()
-                    .background(.thinMaterial)
-                    .cornerRadius(5)
+                if audioRecorder.recording == true{
+                    Text("Stop remembering me")
+                        .padding()
+                        .background(.thinMaterial)
+                        .cornerRadius(5)
+                } else {
+                    Text("Say Remember me Teddy")
+                        .padding()
+                        .background(.thinMaterial)
+                        .cornerRadius(5)
+                }
+                
             }
             
         }

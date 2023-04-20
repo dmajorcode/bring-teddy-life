@@ -19,10 +19,11 @@ struct ARTeddyView: View {
 struct ARContentView: View{
     @State private var recognitionState = false
     @ObservedObject var audioRecorder: AudioRecorder
+    var nextAction: NextAction?
     var body: some View{
         ZStack{
             ARTeddyViewControllerBridge(audioRecorder: audioRecorder, state: $recognitionState)
-            RecognitionOverLayView(audioRecorder: audioRecorder)
+            RecognitionOverLayView(audioRecorder: audioRecorder, nextAction:nextAction)
             //                self.audioRecorder.startRecording()
         }
     }
