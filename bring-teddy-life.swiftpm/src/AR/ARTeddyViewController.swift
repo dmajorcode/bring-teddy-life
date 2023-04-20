@@ -48,7 +48,7 @@ class ARTeddyViewControllerSuper: UIViewController {
 }
 
 class ARTeddyViewController: ARTeddyViewControllerSuper {
-    
+    var audioRecorder: AudioRecorder
 //    let audioRecorder = AudioRecorder()
     private var teddyAnchor: AnchorEntity!
     private var cameraAnchor: AnchorEntity!
@@ -97,6 +97,21 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
+    
+    init(audioRecorder: AudioRecorder, teddyAnchor: AnchorEntity! = nil, cameraAnchor: AnchorEntity! = nil, placementState: Bool = false, speechTask: SFSpeechRecognitionTask = SFSpeechRecognitionTask(), recognitionState: Bool = false) {
+        self.audioRecorder = audioRecorder
+        self.teddyAnchor = teddyAnchor
+        self.cameraAnchor = cameraAnchor
+        self.placementState = placementState
+        self.speechTask = speechTask
+        self.recognitionState = recognitionState
+        self.audioRecorder = audioRecorder
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -229,20 +244,23 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 self.recognitionState = true
                 self.count += 1
                 
-                let audioRecorder = AudioRecorder()
-                audioRecorder.startRecording()
-                print(audioRecorder.recording)
+//                let audioRecorder = AudioRecorder()
+                
+                self.audioRecorder.startRecording()
+                print(self.audioRecorder.recording)
 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                   // 1초 후 실행될 부분
-                    if audioRecorder.recording == true{
-                        audioRecorder.stopRecording()
-                        print(audioRecorder.recordings)
-                        self.recordingsList = audioRecorder.recordings
+                    if self.audioRecorder.recording == true{
+                        self.audioRecorder.stopRecording()
+                        print(self.audioRecorder.recordings)
+                        self.recordingsList = self.audioRecorder.recordings
                         print(self.recordingsList, "this is list")
                     }
                     
                 }
+                
+                
                 return
                 
             }

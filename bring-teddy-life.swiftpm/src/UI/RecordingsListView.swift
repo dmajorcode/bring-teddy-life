@@ -14,7 +14,7 @@ struct RecordingsListView: View {
     var body: some View {
         List {
             ForEach(audioRecorder.recordings, id: \.createdAt) { recording in
-                RecordingRow(audioURL: recording.fileURL)
+                RecordingRow(audioRecorder: audioRecorder, audioURL: recording.fileURL)
             }
         .onDelete(perform: delete)
         }
@@ -30,7 +30,7 @@ struct RecordingsListView: View {
 }
 
 struct RecordingRow: View {
-    
+    @ObservedObject var audioRecorder: AudioRecorder
     var audioURL: URL
     
     @ObservedObject var audioPlayer = AudioPlayer()
@@ -43,7 +43,7 @@ struct RecordingRow: View {
             if audioPlayer.isPlaying == false {
                 Button(action: {
                     self.audioPlayer.startPlayback(audio: self.audioURL)
-                    var ar = ARTeddyViewController()
+                    var ar = ARTeddyViewController(audioRecorder: audioRecorder)
                     print("this is recordinglist indiv", ar.recordingsList)
                 }) {
                     Image(systemName: "play.circle")
