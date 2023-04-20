@@ -32,7 +32,7 @@ struct IntroView: View {
                             
                             Spacer()
                                 .frame(height: 12.0)
-                            Text("I don't wanna tell parents everyting, I'd rather reach teddy. Sometimes I hope my parent would just know and help me.")
+                            Text("I don't wanna tell parents everyting, I'd rather reach teddy. Sometimes I hope my parents would just know and help me.")
                         }   
                     }
                     
