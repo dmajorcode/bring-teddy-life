@@ -10,19 +10,7 @@ import ARKit
 import Speech
 
 class ARTeddyViewControllerSuper: UIViewController {
-//    required init?(coder aDecoder: NSCoder) {
-//            super.init(coder: aDecoder)
-//        }
-//
-//    init(){
-//        super.init()
-//        
-//    }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
+
     let arView = ARView()
     
     var session: ARSession{
@@ -49,7 +37,7 @@ class ARTeddyViewControllerSuper: UIViewController {
 
 class ARTeddyViewController: ARTeddyViewControllerSuper {
     var audioRecorder: AudioRecorder
-//    let audioRecorder = AudioRecorder()
+
     private var teddyAnchor: AnchorEntity!
     private var cameraAnchor: AnchorEntity!
     var placementState = false
@@ -65,38 +53,6 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     
     @Published var recognitionState = false
     @Published var recordingsList = [Recording]()
-    
-//    init(coder aDecoder: NSCoder, audioRecorder: AudioRecorder, teddyAnchor: AnchorEntity!, cameraAnchor: AnchorEntity!, placementState: Bool = false, speechTask: SFSpeechRecognitionTask = SFSpeechRecognitionTask(), recognitionState: Bool = false) {
-//        self.audioRecorder = audioRecorder
-//        self.teddyAnchor = teddyAnchor
-//        self.cameraAnchor = cameraAnchor
-//        self.placementState = placementState
-//        self.speechTask = speechTask
-//        self.recognitionState = recognitionState
-//        super.init(coder: aDecoder)
-//    }
-
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        self.audioRecorder = AudioRecorder()
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    //    init(audioRecorder: AudioRecorder, teddyAnchor: AnchorEntity!, cameraAnchor: AnchorEntity!, placementState: Bool = false, speechTask: SFSpeechRecognitionTask = SFSpeechRecognitionTask(), recognitionState: Bool = false) {
-//        self.audioRecorder = audioRecorder
-//        self.teddyAnchor = teddyAnchor
-//        self.cameraAnchor = cameraAnchor
-//        self.placementState = placementState
-//        self.speechTask = speechTask
-//        self.recognitionState = recognitionState
-//        self.audioRecorder = audioRecorder
-//        super.init()
-//    }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     init(audioRecorder: AudioRecorder, teddyAnchor: AnchorEntity! = nil, cameraAnchor: AnchorEntity! = nil, placementState: Bool = false, speechTask: SFSpeechRecognitionTask = SFSpeechRecognitionTask(), recognitionState: Bool = false) {
         self.audioRecorder = audioRecorder
@@ -131,7 +87,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         configuration.environmentTexturing = .automatic
         
         // DENOTE THIS : code for development environment
-        arView.debugOptions = .showAnchorGeometry
+//        arView.debugOptions = .showAnchorGeometry
         
         arView.session.run(configuration)
         
@@ -244,44 +200,23 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 self.recognitionState = true
                 self.count += 1
                 
-//                let audioRecorder = AudioRecorder()
-                
                 self.audioRecorder.startRecording()
                 print(self.audioRecorder.recording)
 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1000000) {
-                  // 1초 후 실행될 부분
                     if self.audioRecorder.recording == true{
                         self.audioRecorder.stopRecording()
                         print(self.audioRecorder.recordings)
                         self.recordingsList = self.audioRecorder.recordings
-                        print(self.recordingsList, "this is list")
+
                     }
                     
                 }
-                
-                
                 return
                 
             }
-            // record here
-//            print(self.recognitionState)
-//            if (self.recognitionState){
-//                let audioRecorder = AudioRecorder()
-////                self.audioRecorder.startRecording()
-//                audioRecorder.startRecording()
-//                print(audioRecorder.recording)
-//
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-//                  // 1초 후 실행될 부분
-//                    if audioRecorder.recording == true{
-//                        audioRecorder.stopRecording()
-//                    }
-//
-//                }
-//                return
-//            }
-            
+
+
         })
         
     }

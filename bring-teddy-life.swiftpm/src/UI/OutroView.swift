@@ -25,10 +25,14 @@ struct OutroView: View {
                         .frame(maxHeight: 200)
                     
                 }
-                Text(" Baby Diane had a hard time sharing her most honest feelings and experiences with other people.")
-                Spacer()
-                    .frame(height: 12.0)
-                 Text(" But with this Teddy, baby Diane can be sharing whereever. Also parents won't have to worry about baby Diane though she does not directly speak to parents. Teddy will let them know sometimes.")
+                VStack{
+                    Text(" Baby Diane had a hard time sharing her most honest feelings and experiences with other people.")
+                    HStack{
+                        Spacer().frame(maxHeight:10)
+                    }
+                     Text(" But with this Teddy, baby Diane can be sharing whereever. Also parents won't have to worry about baby Diane though she does not directly speak to parents. Teddy will let them know sometimes.")
+                }
+                
                     
                     
                     

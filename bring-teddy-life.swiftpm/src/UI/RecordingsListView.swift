@@ -43,8 +43,8 @@ struct RecordingRow: View {
             if audioPlayer.isPlaying == false {
                 Button(action: {
                     self.audioPlayer.startPlayback(audio: self.audioURL)
-                    var ar = ARTeddyViewController(audioRecorder: audioRecorder)
-                    print("this is recordinglist indiv", ar.recordingsList)
+                    
+                    
                 }) {
                     Image(systemName: "play.circle")
                         .imageScale(.large)

@@ -24,6 +24,3 @@ struct ARTeddyViewControllerBridge: UIViewControllerRepresentable{
     }
 }
 
-//extension ARTeddyViewControllerBridge {
-//    
-//}

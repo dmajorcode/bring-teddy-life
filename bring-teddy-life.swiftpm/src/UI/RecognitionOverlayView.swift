@@ -13,40 +13,32 @@ struct RecognitionOverLayView: View {
     @ObservedObject var audioRecorder: AudioRecorder
     
     var nextAction: NextAction?
-    
+    var check = 0
     var body: some View {
-        VStack{
+        VStack(alignment: .leading, spacing:30){
+    
+                    Button{
+                        if audioRecorder.recording == true{
+                            self.audioRecorder.stopRecording()
+                        }
+
+                    } label: {
+                        if audioRecorder.recording == true{
+                            Text("Stop remembering me")
+                                .padding()
+                                .background(.thinMaterial)
+                                .cornerRadius(5)
+                        } else {
+                            Text("Say Remember me Teddy")
+                                .padding()
+                                .background(.thinMaterial)
+                                .cornerRadius(5)
+                        }
+                    }.padding(60)
 
             Spacer()
-            
-            Button{
-
-                if audioRecorder.recording == true{
-                    self.audioRecorder.stopRecording()
-                }
-                print("this is recordings", self.audioRecorder.recordings)
-            } label: {
-                if audioRecorder.recording == true{
-                    Text("Stop remembering me")
-                        .padding()
-                        .background(.thinMaterial)
-                        .cornerRadius(5)
-                } else {
-                    Text("Say Remember me Teddy")
-                        .padding()
-                        .background(.thinMaterial)
-                        .cornerRadius(5)
-                }
-                
-            }
             
         }
     }
     
 }
-
-//struct RecognitionOverLayView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RecognitionOverLayView(state: <#T##Binding<Bool>#>)
-//    }
-//}
