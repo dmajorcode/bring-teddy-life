@@ -29,13 +29,17 @@ struct RecognitionOverLayView: View {
 //                Text("false for sure")
 //            }
             
-            Spacer()
+//            Spacer()
             Button{
                 nextAction?()
 //                print("this is state", state)
-                self.audioRecorder.stopRecording()
+                
+                if audioRecorder.recording == true{
+                    self.audioRecorder.stopRecording()
+                }
+                print("this is recordings", self.audioRecorder.recordings)
             } label: {
-                Text("Next page")
+                Text("Next dfadfpage")
                     .padding()
                     .background(.thinMaterial)
                     .cornerRadius(5)

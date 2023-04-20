@@ -19,10 +19,11 @@ struct InfoOverLayView: View {
 //
 //            }.padding()
             
-            
+            Spacer()
             Spacer()
             Button{
                 nextAction?()
+                
             } label: {
                 Text("Next page")
                     .padding()

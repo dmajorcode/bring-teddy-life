@@ -9,8 +9,20 @@ import RealityKit
 import ARKit
 import Speech
 
-class ARTeddyViewControllerSuper: UIViewController, ObservableObject {
+class ARTeddyViewControllerSuper: UIViewController {
+//    required init?(coder aDecoder: NSCoder) {
+//            super.init(coder: aDecoder)
+//        }
+//
+//    init(){
+//        super.init()
+//        
+//    }
     
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
     let arView = ARView()
     
     var session: ARSession{
@@ -36,8 +48,8 @@ class ARTeddyViewControllerSuper: UIViewController, ObservableObject {
 }
 
 class ARTeddyViewController: ARTeddyViewControllerSuper {
-//    var audioRecorder: AudioRecorder!
     
+//    let audioRecorder = AudioRecorder()
     private var teddyAnchor: AnchorEntity!
     private var cameraAnchor: AnchorEntity!
     var placementState = false
@@ -52,7 +64,39 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     let audioSession = AVAudioSession.sharedInstance()
     
     @Published var recognitionState = false
+    @Published var recordingsList = [Recording]()
     
+//    init(coder aDecoder: NSCoder, audioRecorder: AudioRecorder, teddyAnchor: AnchorEntity!, cameraAnchor: AnchorEntity!, placementState: Bool = false, speechTask: SFSpeechRecognitionTask = SFSpeechRecognitionTask(), recognitionState: Bool = false) {
+//        self.audioRecorder = audioRecorder
+//        self.teddyAnchor = teddyAnchor
+//        self.cameraAnchor = cameraAnchor
+//        self.placementState = placementState
+//        self.speechTask = speechTask
+//        self.recognitionState = recognitionState
+//        super.init(coder: aDecoder)
+//    }
+
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        self.audioRecorder = AudioRecorder()
+//    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    //    init(audioRecorder: AudioRecorder, teddyAnchor: AnchorEntity!, cameraAnchor: AnchorEntity!, placementState: Bool = false, speechTask: SFSpeechRecognitionTask = SFSpeechRecognitionTask(), recognitionState: Bool = false) {
+//        self.audioRecorder = audioRecorder
+//        self.teddyAnchor = teddyAnchor
+//        self.cameraAnchor = cameraAnchor
+//        self.placementState = placementState
+//        self.speechTask = speechTask
+//        self.recognitionState = recognitionState
+//        self.audioRecorder = audioRecorder
+//        super.init()
+//    }
+    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -186,7 +230,6 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 self.count += 1
                 
                 let audioRecorder = AudioRecorder()
-//                self.audioRecorder.startRecording()
                 audioRecorder.startRecording()
                 print(audioRecorder.recording)
 
@@ -194,6 +237,9 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                   // 1초 후 실행될 부분
                     if audioRecorder.recording == true{
                         audioRecorder.stopRecording()
+                        print(audioRecorder.recordings)
+                        self.recordingsList = audioRecorder.recordings
+                        print(self.recordingsList, "this is list")
                     }
                     
                 }

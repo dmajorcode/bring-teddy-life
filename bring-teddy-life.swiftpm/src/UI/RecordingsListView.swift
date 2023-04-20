@@ -11,7 +11,6 @@ struct RecordingsListView: View {
     
     @ObservedObject var audioRecorder: AudioRecorder
     
-    
     var body: some View {
         List {
             ForEach(audioRecorder.recordings, id: \.createdAt) { recording in
@@ -44,6 +43,8 @@ struct RecordingRow: View {
             if audioPlayer.isPlaying == false {
                 Button(action: {
                     self.audioPlayer.startPlayback(audio: self.audioURL)
+                    var ar = ARTeddyViewController()
+                    print("this is recordinglist indiv", ar.recordingsList)
                 }) {
                     Image(systemName: "play.circle")
                         .imageScale(.large)
@@ -60,8 +61,8 @@ struct RecordingRow: View {
     }
 }
 
-struct RecordingsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordingsListView(audioRecorder: AudioRecorder())
-    }
-}
+//struct RecordingsListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecordingsListView(audioRecorder: AudioRecorder())
+//    }
+//}

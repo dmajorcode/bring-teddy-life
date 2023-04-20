@@ -24,7 +24,7 @@ class AudioRecorder: NSObject, ObservableObject{
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
     var audioRecorder: AVAudioRecorder!
     var recordings = [Recording]()
-    var recording = false{
+    @Published var recording = false{
         didSet{
             objectWillChange.send(self)
         }

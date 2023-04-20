@@ -22,14 +22,14 @@ struct ARContentView: View{
     var body: some View{
         ZStack{
             ARTeddyViewControllerBridge(state: $recognitionState)
-//            RecognitionOverLayView(state: recognitionState, audioRecorder: audioRecorder)
+            RecognitionOverLayView(audioRecorder: audioRecorder)
             //                self.audioRecorder.startRecording()
         }
     }
 }
 
-struct ARTeddyView_Previews: PreviewProvider {
-    static var previews: some View {
-        ARTeddyView(audioRecorder: AudioRecorder())
-    }
-}
+//struct ARTeddyView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ARTeddyView(audioRecorder: AudioRecorder())
+//    }
+//}
