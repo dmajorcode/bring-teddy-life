@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RecognitionOverLayView: View {
-//    @Binding var state: Binding<Any>
-    @ObservedObject var arTeddyViewController: ARTeddyViewController
+//    @State var state: Bool
+//    @ObservedObject var arTeddyViewController: ARTeddyViewController
     @ObservedObject var audioRecorder: AudioRecorder
     
     var nextAction: NextAction?
@@ -23,7 +23,7 @@ struct RecognitionOverLayView: View {
 //
 //            }.padding()
             
-//            if $arTeddyViewController.state == true{
+//            if state == true{
 //                Text("true for sure")
 //            }else{
 //                Text("false for sure")
@@ -32,7 +32,8 @@ struct RecognitionOverLayView: View {
             Spacer()
             Button{
                 nextAction?()
-//                self.audioRecorder.stopRecording()
+//                print("this is state", state)
+                self.audioRecorder.stopRecording()
             } label: {
                 Text("Next page")
                     .padding()

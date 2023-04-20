@@ -32,7 +32,7 @@ class AudioRecorder: NSObject, ObservableObject{
     
     func startRecording() {
         let recordingSession = AVAudioSession.sharedInstance()
-        
+        print("just started recording")
         do{
             try recordingSession.setCategory(.playAndRecord, mode:.default)
             try recordingSession.setActive(true)
@@ -67,6 +67,7 @@ class AudioRecorder: NSObject, ObservableObject{
     }
     
     func stopRecording() {
+        print("lets stop recording")
         audioRecorder.stop()
         recording = false
         

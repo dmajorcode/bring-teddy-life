@@ -52,11 +52,12 @@ extension ContentView{
     struct ARViewPlaceHolder<T: View> : View{
         var arView: T
         var nextAction: NextAction?
-        
+//        @ObservedObject var audioRecorder: AudioRecorder
         var body: some View{
             ZStack{
                 arView.ignoresSafeArea()
                 InfoOverLayView(nextAction:nextAction)
+//                RecognitionOverLayView(audioRecorder: audioRecorder, nextAction:nextAction)
             }
         }
     }
@@ -67,7 +68,7 @@ extension ContentView{
         
         var body: some View{
             ZStack{
-                audioRecordingsView.ignoresSafeArea()
+                audioRecordingsView
                 InfoOverLayView(nextAction:nextAction)
             }
         }

@@ -36,7 +36,7 @@ class ARTeddyViewControllerSuper: UIViewController, ObservableObject {
 }
 
 class ARTeddyViewController: ARTeddyViewControllerSuper {
-    var audioRecorder: AudioRecorder!
+//    var audioRecorder: AudioRecorder!
     
     private var teddyAnchor: AnchorEntity!
     private var cameraAnchor: AnchorEntity!
@@ -51,7 +51,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     let audioEngine = AVAudioEngine()
     let audioSession = AVAudioSession.sharedInstance()
     
-    var recognitionState = false
+    @Published var recognitionState = false
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -159,8 +159,9 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         }
         
     }
-
+    var count = 0
     func speechRecognize(){
+        if (self.count > 0){return}
         guard let speechRecognizer = SFSpeechRecognizer() else{
             print("Speech recognizer not available")
             return
@@ -182,12 +183,25 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 result.bestTranscription.formattedString.contains("remember me Teddy")){
                 // Start recording
                 self.recognitionState = true
+                self.count += 1
                 
             }
             // record here
             print(self.recognitionState)
             if (self.recognitionState){
+                let audioRecorder = AudioRecorder()
 //                self.audioRecorder.startRecording()
+                audioRecorder.startRecording()
+                print(audioRecorder.recording)
+
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                  // 1초 후 실행될 부분
+                    if audioRecorder.recording == true{
+                        audioRecorder.stopRecording()
+                    }
+                    
+                }
+                return
             }
             
         })

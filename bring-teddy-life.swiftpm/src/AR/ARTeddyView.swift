@@ -22,7 +22,7 @@ struct ARContentView: View{
     var body: some View{
         ZStack{
             ARTeddyViewControllerBridge(state: $recognitionState)
-//            RecognitionOverLayView(state: $recognitionState, audioRecorder: audioRecorder)
+//            RecognitionOverLayView(state: recognitionState, audioRecorder: audioRecorder)
             //                self.audioRecorder.startRecording()
         }
     }
