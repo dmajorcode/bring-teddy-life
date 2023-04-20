@@ -30,6 +30,7 @@ struct ContentView: View {
                     guard currentPage == .ar else {return}
                     currentPageIndex += 1
                 }
+                // should make audioRecording here and put in list and other place
             case .recordingsList:
                 RecordingsViewPlaceHolder(audioRecordingsView: AudioRecordingsView(audioRecorder: audioRecorder)){
                     guard currentPage == .recordingsList else {return}

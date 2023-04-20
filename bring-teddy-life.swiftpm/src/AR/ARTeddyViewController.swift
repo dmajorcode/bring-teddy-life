@@ -161,7 +161,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
     }
     var count = 0
     func speechRecognize(){
-        if (self.count > 0){return}
+        
         guard let speechRecognizer = SFSpeechRecognizer() else{
             print("Speech recognizer not available")
             return
@@ -175,7 +175,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
         speechTask = speechRecognizer.recognitionTask(with: speechRequest, resultHandler: {(result, error) in
             guard let result = result else {return}
             
-            if (self.recognitionState){return}
+            if (self.recognitionState || self.count > 0){return}
             print(result.bestTranscription.formattedString)
             if (result.bestTranscription.formattedString.contains("Remember me teddy") ||
                 result.bestTranscription.formattedString.contains("Remember me Teddy") ||
@@ -185,16 +185,12 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 self.recognitionState = true
                 self.count += 1
                 
-            }
-            // record here
-            print(self.recognitionState)
-            if (self.recognitionState){
                 let audioRecorder = AudioRecorder()
 //                self.audioRecorder.startRecording()
                 audioRecorder.startRecording()
                 print(audioRecorder.recording)
 
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                   // 1초 후 실행될 부분
                     if audioRecorder.recording == true{
                         audioRecorder.stopRecording()
@@ -202,7 +198,25 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                     
                 }
                 return
+                
             }
+            // record here
+//            print(self.recognitionState)
+//            if (self.recognitionState){
+//                let audioRecorder = AudioRecorder()
+////                self.audioRecorder.startRecording()
+//                audioRecorder.startRecording()
+//                print(audioRecorder.recording)
+//
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//                  // 1초 후 실행될 부분
+//                    if audioRecorder.recording == true{
+//                        audioRecorder.stopRecording()
+//                    }
+//
+//                }
+//                return
+//            }
             
         })
         
