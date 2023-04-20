@@ -249,7 +249,7 @@ class ARTeddyViewController: ARTeddyViewControllerSuper {
                 self.audioRecorder.startRecording()
                 print(self.audioRecorder.recording)
 
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10000) {
                   // 1초 후 실행될 부분
                     if self.audioRecorder.recording == true{
                         self.audioRecorder.stopRecording()

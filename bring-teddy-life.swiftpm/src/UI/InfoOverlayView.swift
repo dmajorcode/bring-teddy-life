@@ -19,7 +19,7 @@ struct InfoOverLayView: View {
 //
 //            }.padding()
             
-            Spacer()
+            
             Spacer()
             Button{
                 nextAction?()

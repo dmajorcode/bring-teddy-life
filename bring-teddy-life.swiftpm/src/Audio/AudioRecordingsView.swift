@@ -13,7 +13,7 @@ struct AudioRecordingsView: View {
     var body: some View {
         ZStack{
             RecordingsListView(audioRecorder:audioRecorder)
-            Text("i am in recordingsview")
+//            Text("i am in recordingsview")
         }
     }
 }
