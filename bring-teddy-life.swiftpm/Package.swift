@@ -24,13 +24,9 @@ let package = Package(
             accentColor: .presetColor(.red),
             supportedDeviceFamilies: [
                 .pad,
-                .phone
             ],
             supportedInterfaceOrientations: [
                 .portrait,
-                .landscapeRight,
-                .landscapeLeft,
-                .portraitUpsideDown(.when(deviceFamilies: [.pad]))
             ],
             capabilities: [
                 .camera(purposeString: "Our app will ask access to your camera for AR experience. Please allow."),
