@@ -8,20 +8,20 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "bring-teddy-life",
+    name: "rememBear",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "bring-teddy-life",
+            name: "rememBear",
             targets: ["AppModule"],
             bundleIdentifier: "Apple-Developer-Academy.bring-teddy-life",
             teamIdentifier: "A84HQ97N4T",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
-            accentColor: .presetColor(.brown),
+            accentColor: .asset("AccentColor"),
             supportedDeviceFamilies: [
                 .phone
             ],
