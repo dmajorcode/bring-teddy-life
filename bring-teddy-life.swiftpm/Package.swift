@@ -20,13 +20,13 @@ let package = Package(
             teamIdentifier: "A84HQ97N4T",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .star),
-            accentColor: .presetColor(.red),
+            appIcon: .asset("AppIcon"),
+            accentColor: .presetColor(.brown),
             supportedDeviceFamilies: [
                 .phone
             ],
             supportedInterfaceOrientations: [
-                .portrait,
+                .portrait
             ],
             capabilities: [
                 .camera(purposeString: "Our app will ask access to your camera for AR experience. Please allow."),
